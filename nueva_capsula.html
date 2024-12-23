@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Nueva Cápsula del Tiempo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <a href="index.html" id="regresar">Regresar</a>
+</header>
+<body>
+  <div id="container">
+    <h1>Crea tu propia Cápsula del Tiempo</h1>
+
+    <!-- Formulario para el mensaje -->
+    <form id="capsuleForm" enctype="multipart/form-data">
+      <label for="message">Deja un mensaje para el futuro:</label>
+      <textarea id="message" placeholder="Escribe tu mensaje aquí..."></textarea>
+      
+      <!-- Sección para agregar archivos -->
+      <label for="files">Agrega una imagen, video o archivo de voz:</label>
+      <input type="file" id="files" name="files" multiple accept="image/*,video/*,audio/*">
+      
+      <!-- Selector de fecha -->
+      <label for="unlockDate">Selecciona la fecha para abrir tu cápsula:</label>
+      <input type="date" id="unlockDate" name="unlockDate" required>
+      
+      <!-- Campo para agregar personas -->
+      <label for="people">Añadir personas a tu cápsula (por correo electrónico):</label>
+      <input type="email" id="person1" name="person1" placeholder="Correo electrónico de persona 1" multiple>
+      <input type="email" id="person2" name="person2" placeholder="Correo electrónico de persona 2">
+
+      <button type="submit">Guardar Cápsula</button>
+    </form>
+
+    <p id="confirmationMessage"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

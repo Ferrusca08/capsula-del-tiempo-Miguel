@@ -1,0 +1,101 @@
+/* Estilos para la página principal de la cápsula */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #container {
+    margin-top: 100px;
+  }
+  
+  #countdown-container {
+    font-size: 2em;
+    color: #ff6347;
+    margin-bottom: 30px;
+  }
+  
+  #countdown {
+    font-size: 3em;
+    font-weight: bold;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #newCapsule {
+    margin-top: 50px;
+    font-size: 1.5em;
+    margin: 10rem;
+  }
+  
+  #newCapsule button {
+    background-color: #28a745;
+  }
+  
+  #newCapsule button:hover {
+    background-color: #218838;
+  }
+  
+  /* Estilos para la página de crear una nueva cápsula */
+  form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  input[type="file"], input[type="date"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #confirmationMessage {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #28a745;
+  }
+  
