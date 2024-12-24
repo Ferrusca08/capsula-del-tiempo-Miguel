@@ -4,7 +4,7 @@
 
 
 document.getElementById("createNewBtn").addEventListener("click", function () {
-  window.location.href = "nueva-capsula.html"; // Asegúrate de que el nombre del archivo sea correcto
+  window.location.href = "nueva_capsula.html"; // Asegúrate de que el nombre del archivo sea correcto
 });
 
 
