@@ -1,33 +1,50 @@
-// Obtener el botón de "Crear Nueva Cápsula"
-document.getElementById("createNewBtn").addEventListener("click", function() {
-    window.location.href = "nueva-capsula.html"; // Redirige a la página de creación
-  });
-  
-  // Lógica para la cuenta regresiva y mostrar mensaje (ejemplo básico)
-  function showCountdown() {
-    const countdownElement = document.getElementById("countdown");
-  
-    // Suponiendo que tienes una fecha para la cápsula, por ejemplo:
-    const openingDate = new Date("2024-12-31T23:59:59"); // Ajusta la fecha y hora
-    const currentDate = new Date();
-    const countdown = openingDate - currentDate;
-  
-    if (countdown > 0) {
-      const daysLeft = Math.floor(countdown / (1000 * 60 * 60 * 24));
-      const hoursLeft = Math.floor((countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutesLeft = Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60));
-      const secondsLeft = Math.floor((countdown % (1000 * 60)) / 1000);
-  
-      countdownElement.textContent = `${daysLeft} días, ${hoursLeft} horas, ${minutesLeft} minutos, ${secondsLeft} segundos`;
-    } else {
-      countdownElement.textContent = "¡La cápsula ya está abierta!";
-      document.getElementById("unlockBtn").style.display = "block"; // Mostrar el botón de abrir
-    }
+if (!localStorage.getItem("capsules")) {
+    localStorage.setItem("capsules", JSON.stringify([]));
   }
   
-  // Llamar a la función para iniciar la cuenta regresiva
-  showCountdown();
+
+// Función para crear una nueva cápsula
+document.getElementById("createCapsuleForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    
+    // Obtener los datos del formulario
+    const title = document.getElementById("title").value;
+    const date = document.getElementById("date").value;
+    const participants = document.getElementById("participants").value.split(",");
+    
+    // Arreglo para almacenar los mensajes multimedia
+    const messages = [];
   
-  // Actualizar la cuenta regresiva cada segundo
-  setInterval(showCountdown, 1000);
+    // Verificar el tipo de mensaje y agregarlo a los mensajes
+    const messageType = document.getElementById("messageType").value;
+    const messageContent = document.getElementById("messageContent").value;
+  
+    if (messageType === "text") {
+      messages.push({ type: "text", content: messageContent });
+    } else if (messageType === "image") {
+      messages.push({ type: "image", content: messageContent });
+    } else if (messageType === "video") {
+      messages.push({ type: "video", content: messageContent });
+    } else if (messageType === "audio") {
+      messages.push({ type: "audio", content: messageContent });
+    }
+  
+    // Crear la cápsula
+    const newCapsule = {
+      title: title,
+      date: new Date(date),
+      participants: participants,
+      messages: messages,
+    };
+  
+    // Obtener las cápsulas almacenadas en localStorage
+    const capsules = JSON.parse(localStorage.getItem("capsules")) || [];
+    capsules.push(newCapsule);
+  
+    // Guardar las cápsulas de nuevo en localStorage
+    localStorage.setItem("capsules", JSON.stringify(capsules));
+  
+    // Redirigir a la página principal (index.html)
+    window.location.href = "index.html"; 
+  });
   

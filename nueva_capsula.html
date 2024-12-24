@@ -22,7 +22,17 @@
         <textarea id="messages"></textarea>
 
         <label for="participants">Participantes (separados por coma):</label>        <input type="text" id="participants" />
-
+        <label for="messageType">Tipo de mensaje:</label>
+        <select id="messageType">
+          <option value="text">Texto</option>
+          <option value="image">Imagen (URL)</option>
+          <option value="video">Video (URL)</option>
+          <option value="audio">Audio (URL)</option>
+        </select>
+        
+        <label for="messageContent">Contenido del mensaje:</label>
+        <input type="text" id="messageContent" />
+        
         <button type="submit">Crear Cápsula</button>
     </form>
 
