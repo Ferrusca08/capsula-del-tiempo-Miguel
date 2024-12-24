@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "title": "Mi primera cápsula",
+      "date": "2025-12-24T12:00:00",
+      "messages": ["Mensaje 1", "Mensaje 2"],
+      "participants": ["John", "Doe"]
+    },
+    {
+      "id": 2,
+      "title": "Mi segunda cápsula",
+      "date": "2026-01-01T00:00:00",
+      "messages": ["Feliz Año Nuevo"],
+      "participants": ["Jane", "Smith"]
+    }
+  ]
+  

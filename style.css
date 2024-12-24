@@ -45,11 +45,11 @@ body {
   }
   
   #newCapsule button {
-    background-color: #28a745;
+    background-color: #ff6347;
   }
   
   #newCapsule button:hover {
-    background-color: #218838;
+    background-color: #d86b0c;
   }
   
   /* Estilos para la página de crear una nueva cápsula */
