@@ -23,8 +23,8 @@
       <input type="file" id="files" name="files" multiple accept="image/*,video/*,audio/*">
       
       <!-- Selector de fecha -->
-      <label for="unlockDate">Selecciona la fecha para abrir tu cápsula:</label>
-      <input type="date" id="unlockDate" name="unlockDate" required>
+      <label for="capsuleDate">Fecha de apertura:</label>
+      <input type="datetime-local" id="capsuleDate" required />
       
       <!-- Campo para agregar personas -->
       <label for="people">Añadir personas a tu cápsula (por correo electrónico):</label>
@@ -37,6 +37,6 @@
     <p id="confirmationMessage"></p>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script-nueva-capsula.js"></script>
 </body>
 </html>

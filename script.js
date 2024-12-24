@@ -1,42 +1,43 @@
+// Recuperar la fecha desde localStorage
+const capsuleDate = localStorage.getItem("capsuleDate");
 
-document.getElementById('createNewBtn').addEventListener('click', function() {
-    // Redirigir a la página de crear una nueva cápsula
-    window.location.href = 'nueva_capsula.html'; // Cambia esta URL a la página correcta si es necesario
-  });
+if (!capsuleDate) {
+  document.getElementById("countdown").innerHTML =
+    "No hay una cápsula configurada. Crea una nueva.";
+} else {
+  const openingDate = new Date(capsuleDate);
 
+  // Validar si la fecha es válida
+  if (openingDate <= new Date()) {
+    document.getElementById("countdown").innerHTML =
+      "La fecha de apertura ya pasó. Configura una nueva cápsula.";
+  } else {
+    // Función para actualizar la cuenta regresiva
+    function updateCountdown() {
+      const now = new Date();
+      const timeDifference = openingDate - now;
 
-document.getElementById('capsuleForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevenir que el formulario se envíe de forma tradicional
-  
-    // Obtener los datos del formulario
-    const message = document.getElementById('message').value;
-    const files = document.getElementById('files').files;
-    const unlockDate = document.getElementById('unlockDate').value;
-    const people = [];
-    if (document.getElementById('person1').value) people.push(document.getElementById('person1').value);
-    if (document.getElementById('person2').value) people.push(document.getElementById('person2').value);
-  
-    // Validar que se haya seleccionado una fecha y se haya escrito un mensaje
-    if (!unlockDate || !message) {
-      alert("Por favor, completa todos los campos.");
-      return;
+      if (timeDifference <= 0) {
+        document.getElementById("countdown").innerHTML =
+          "¡Es hora de abrir tu cápsula!";
+        clearInterval(interval); // Detener el temporizador
+        return;
+      }
+
+      // Calcula días, horas, minutos y segundos restantes
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      // Actualiza el contador
+      document.getElementById("countdown").innerHTML = `
+        ${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos
+      `;
     }
-  
-    // Crear un objeto con la información de la cápsula
-    const capsuleData = {
-      message,
-      files: files,
-      unlockDate: unlockDate,
-      people: people
-    };
-  
-    // Simular guardar los datos en el almacenamiento local o enviarlos a un servidor
-    console.log('Cápsula del tiempo creada:', capsuleData);
-  
-    // Mostrar mensaje de confirmación
-    document.getElementById('confirmationMessage').textContent = "¡Tu cápsula del tiempo ha sido guardada exitosamente!";
-  
-    // Limpiar los campos del formulario
-    document.getElementById('capsuleForm').reset();
-  });
-  
+
+    // Inicia el temporizador
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Ejecutar inmediatamente
+  }
+}
