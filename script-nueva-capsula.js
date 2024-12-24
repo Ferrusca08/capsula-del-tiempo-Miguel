@@ -3,7 +3,7 @@ document.getElementById("capsuleForm").addEventListener("submit", function (even
   
     // Obtener los valores del formulario
     const capsuleDate = document.getElementById("capsuleDate").value;
-    const capsulePeople = document.getElementById("capsulePeople").value;
+    const capsulePeople = document.getElementById("person1").value;
   
     // Validar que la fecha sea válida
     if (!capsuleDate || new Date(capsuleDate) <= new Date()) {
